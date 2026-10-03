@@ -15,7 +15,33 @@
 
   /* ---------- truck ---------- */
   const truck = $("#truck");
+  // Bell sound is synthesized, so there is no audio file to load. It only plays on a tap.
+  let audio;
+  function ding(at, freq) {
+    const out = audio.createGain();
+    out.gain.setValueAtTime(0.0001, at);
+    out.gain.exponentialRampToValueAtTime(0.22, at + 0.004);
+    out.gain.exponentialRampToValueAtTime(0.0001, at + 1.1);
+    out.connect(audio.destination);
+    [[1, 1], [2.76, 0.45], [5.4, 0.22], [8.93, 0.1]].forEach(([ratio, level]) => {
+      const osc = audio.createOscillator(), g = audio.createGain();
+      osc.frequency.value = freq * ratio;
+      g.gain.value = level;
+      osc.connect(g); g.connect(out);
+      osc.start(at); osc.stop(at + 1.15);
+    });
+  }
+  function ringBell() {
+    try {
+      audio = audio || new (window.AudioContext || window.webkitAudioContext)();
+      audio.resume();
+      const t = audio.currentTime + 0.03;
+      [0, 0.17, 0.34, 0.51, 0.85, 1.02, 1.19].forEach((d, i) => ding(t + d, i % 2 ? 1870 : 2090));
+    } catch (e) { /* no sound available; the truck still jingles */ }
+  }
+
   $("#bell").addEventListener("click", () => {
+    ringBell();
     truck.classList.remove("ring");
     void truck.offsetWidth;
     truck.classList.add("ring");

@@ -103,7 +103,7 @@ h2 { font-size: clamp(2.1rem, 6vw, 3.4rem); margin-bottom: 12px; }
 .notes text { font-size: 30px; fill: var(--ink); opacity: 0; transform-box: fill-box; animation: note 1.5s 3.4s ease-out 2 both; }
 .notes text:nth-child(2) { animation-delay: 3.6s; }
 .notes text:nth-child(3) { animation-delay: 3.8s; }
-.truck.ring svg { animation: jiggle .5s ease-in-out; transform-origin: 50% 90%; }
+.truck.ring svg { animation: jiggle .28s ease-in-out 5; transform-origin: 50% 90%; }
 .truck.ring .notes text { animation: note 1.5s ease-out 2 both; }
 .truck.ring .notes text:nth-child(2) { animation-delay: .2s; }
 .truck.ring .notes text:nth-child(3) { animation-delay: .4s; }
@@ -113,7 +113,7 @@ h2 { font-size: clamp(2.1rem, 6vw, 3.4rem); margin-bottom: 12px; }
 @keyframes flap { from { transform: scaleY(1); } to { transform: scaleY(.1); } }
 @keyframes pop { from { transform: translateY(80px); } to { transform: none; } }
 @keyframes note { 0% { opacity: 0; transform: translateY(8px); } 25% { opacity: 1; } 100% { opacity: 0; transform: translateY(-34px) rotate(14deg); } }
-@keyframes jiggle { 25% { transform: rotate(-1.2deg); } 60% { transform: rotate(1deg); } }
+@keyframes jiggle { 25% { transform: rotate(-1.4deg) translateY(-2px); } 65% { transform: rotate(1.2deg); } }
 
 .road { height: 62px; background: #3B4252 repeating-linear-gradient(90deg, var(--yellow) 0 44px, transparent 44px 88px) 0 26px / 88px 6px repeat-x; border-top: 4px solid var(--ink); }
 .hero-foot { position: relative; background: var(--ink); color: #fff; display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; justify-content: center; padding: 14px 20px; }
