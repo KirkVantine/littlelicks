@@ -80,18 +80,25 @@
     upEl.appendChild(li);
     nextEl.innerHTML = `Open dates available. <a href="#book">Book the truck</a>`;
   }
-  past.forEach((s) => pastEl.appendChild(stopItem(s)));
+  // With a short "Coming up" list, show the latest past stops in the open so the column isn't empty.
+  const recent = upcoming.length < 3 ? past.slice(0, 2) : [];
+  if (recent.length) {
+    recent.forEach((s) => $("#recent").appendChild(stopItem(s)));
+    $("#recentWrap").hidden = false;
+  }
+  past.slice(recent.length).forEach((s) => pastEl.appendChild(stopItem(s)));
+  if (past.length <= recent.length) pastEl.closest("details").hidden = true;
 
   /* ---------- Facebook feed (loads when scrolled near) ---------- */
   const frame = $("#feedFrame");
   function loadFeed() {
-    const w = Math.max(280, Math.min(500, Math.floor(frame.clientWidth)));
+    const w = Math.max(280, Math.min(380, Math.floor(frame.clientWidth)));
     const f = document.createElement("iframe");
     f.title = "Latest posts from Little Licks Tasty Treats on Facebook";
     f.loading = "lazy";
-    f.width = w; f.height = 640;
+    f.width = w; f.height = 400;
     f.src = "https://www.facebook.com/plugins/page.php?href=" + encodeURIComponent(FB_PAGE) +
-      `&tabs=timeline&width=${w}&height=640&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false`;
+      `&tabs=timeline&width=${w}&height=400&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false`;
     frame.prepend(f);
   }
   if ("IntersectionObserver" in window) {
