@@ -88,9 +88,9 @@ h2 { font-size: clamp(2.1rem, 6vw, 3.4rem); margin-bottom: 12px; }
   .snap::before, .snap::after { content: ""; position: absolute; top: 100%; width: 12px; height: 48px; background: var(--ink); border-radius: 0 0 3px 3px; }
   .snap::before { left: 20%; }
   .snap::after { right: 20%; }
-  .stage-row .truck { width: 100%; max-width: 620px; justify-self: end; margin: 0 0 -14px; }
+  .stage-row .truck { width: 100%; max-width: 500px; justify-self: end; margin: 0 0 -14px; }
 }
-.truck { position: relative; z-index: 2; width: min(620px, 94vw); margin: 0 auto -14px; animation: drive 2.3s var(--ease-out) both; }
+.truck { position: relative; z-index: 2; width: min(500px, 90vw); margin: 0 auto -14px; animation: drive 2.3s var(--ease-out) both; }
 .truck svg { display: block; width: 100%; height: auto; overflow: visible; }
 .ink { stroke: var(--ink); stroke-width: 5; stroke-linejoin: round; }
 .ink.thin { stroke-width: 3.5; }
