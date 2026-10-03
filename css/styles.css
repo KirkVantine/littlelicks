@@ -77,6 +77,19 @@ h2 { font-size: clamp(2.1rem, 6vw, 3.4rem); margin-bottom: 12px; }
 .cta-row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
 
 .stage { position: relative; margin-top: 22px; }
+.stage-row { position: relative; z-index: 2; display: grid; justify-items: center; gap: 22px; }
+.snap { position: relative; width: min(360px, 82vw); background: #fff; border: 4px solid var(--ink); border-radius: 14px; padding: 8px 8px 2px; transform: rotate(-2deg); box-shadow: 6px 6px 0 var(--ink); }
+.snap img { width: 100%; border-radius: 7px; }
+.snap figcaption { font-family: var(--script); font-size: 1.45rem; line-height: 1.5; color: var(--red); }
+@media (min-width: 760px) {
+  /* the photo becomes a roadside billboard beside the truck */
+  .stage-row { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); align-items: end; gap: 32px; max-width: var(--wrap); margin: 0 auto; padding: 0 20px; }
+  .snap { order: 2; width: 100%; max-width: 440px; margin-bottom: 44px; transform: none; justify-self: start; }
+  .snap::before, .snap::after { content: ""; position: absolute; top: 100%; width: 12px; height: 48px; background: var(--ink); border-radius: 0 0 3px 3px; }
+  .snap::before { left: 20%; }
+  .snap::after { right: 20%; }
+  .stage-row .truck { width: 100%; max-width: 620px; justify-self: end; margin: 0 0 -14px; }
+}
 .truck { position: relative; z-index: 2; width: min(620px, 94vw); margin: 0 auto -14px; animation: drive 2.3s var(--ease-out) both; }
 .truck svg { display: block; width: 100%; height: auto; overflow: visible; }
 .ink { stroke: var(--ink); stroke-width: 5; stroke-linejoin: round; }
