@@ -33,10 +33,15 @@
   }
   function ringBell() {
     try {
+      // iPhones mute web sounds when the ring/silent switch is on silent unless the page asks for "playback".
+      if (navigator.audioSession) navigator.audioSession.type = "playback";
       audio = audio || new (window.AudioContext || window.webkitAudioContext)();
-      audio.resume();
-      const t = audio.currentTime + 0.03;
-      [0, 0.17, 0.34, 0.51, 0.85, 1.02, 1.19].forEach((d, i) => ding(t + d, i % 2 ? 1870 : 2090));
+      const play = () => {
+        const t = audio.currentTime + 0.05;
+        [0, 0.17, 0.34, 0.51, 0.85, 1.02, 1.19].forEach((d, i) => ding(t + d, i % 2 ? 1870 : 2090));
+      };
+      // Safari starts the audio engine asleep; wait for it to wake before scheduling the bells.
+      if (audio.state === "running") play(); else audio.resume().then(play);
     } catch (e) { /* no sound available; the truck still jingles */ }
   }
 
