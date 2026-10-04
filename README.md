@@ -24,16 +24,16 @@ Everything on it came from your Facebook page: the logo, the truck's red, white 
 
 | | |
 | --- | --- |
-| Finished website, built for phones first | **$400**, one time |
-| Hosting for the first year | Included |
-| Hosting each year after | **$150 per year** |
+| Finished website, built for phones first | **$420**, one time |
+| Hosting and domain registration for the first year | Included |
+| Each year after | **$150 per year**, covering hosting and domain renewal |
 
 ## What I'd need from you
 
 1. **The truck's real story.** I wrote the history section from what's public about Good Humor and from your posts. Where the truck spent its years before you, how you found it, and what the restoration took would make that section yours. Please correct anything I got wrong, including the 2025 start date.
 2. **Photos you'd like featured.** The preview uses photos from your Facebook page. I left out the pictures of kids until you say which ones are okay to show, and I left out the Gary DeLisle car show photo until we have his permission.
 3. **Upcoming stops.** Everything on your page right now has already happened or is happening today, so the "Coming up" list is short. Send me dates as you book them, or I can show you how to add one yourself. It's one line per stop.
-4. **A web address.** Something like `littlelickstastytreats.com`. We can pick one together.
+4. **A web address.** Something like `littlelickstastytreats.com`. Registration is included, so we just need to pick one together.
 
 ## To finish before launch
 
